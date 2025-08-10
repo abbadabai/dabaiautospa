@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Dabai Auto Spa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="Image/logo-grayscale.png" type="images/x-icon">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-car-wash"></i>
+                <img src="Image/dabai-startup-high-resolution-logo-grayscale-transparent.png" alt="" width="80px">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="booking.html" class="nav-link">My Bookings</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Services Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Choose from our comprehensive range of car care services</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card" data-service="basic-wash">
+                    <div class="service-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h3>Basic Wash</h3>
+                    <p>Exterior wash, tire cleaning, and basic interior vacuum</p>
+                    <div class="service-price">₦2,500</div>
+                    <div class="service-gallery">
+                        <img src="Image/service-car-wash.png" alt="Basic Wash">
+                    </div>
+                    <button class="btn btn-outline service-select-btn" onclick="toggleServiceSelection('basic-wash', 'Basic Wash', 2500)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="premium-wash">
+                    <div class="service-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3>Premium Wash</h3>
+                    <p>Basic wash plus wax, tire dressing, and interior cleaning</p>
+                    <div class="service-price">₦4,500</div>
+                    <div class="service-gallery">
+                        <img src="Image/Premium.png" alt="Premium Wash">
+                    </div>
+                    <button class="btn btn-outline service-select-btn" onclick="toggleServiceSelection('premium-wash', 'Premium Wash', 4500)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="interior-detail">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Interior Detail</h3>
+                    <p>Deep interior cleaning, leather treatment, and odor removal</p>
+                    <div class="service-price">₦6,500</div>
+                    <div class="service-gallery">
+                        <img src="Image/The-Perks-of-Car-Wash-and-Car-De.png" alt="Interior Detail">
+                    </div>
+                    <button class="btn btn-outline service-select-btn" onclick="toggleServiceSelection('interior-detail', 'Interior Detail', 6500)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="full-detail">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Full Detail</h3>
+                    <p>Complete exterior and interior detailing with paint protection</p>
+                    <div class="service-price">₦12,000</div>
+                    <div class="service-gallery">
+                        <img src="Image/car-interior-shampooing.png" alt="Full Detail">
+                    </div>
+                    <button class="btn btn-outline service-select-btn" onclick="toggleServiceSelection('full-detail', 'Full Detail', 12000)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="ceramic-coating">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Ceramic Coating</h3>
+                    <p>Long-lasting paint protection with hydrophobic coating</p>
+                    <div class="service-price">₦25,000</div>
+                    <div class="service-gallery">
+                        <img src="Image/auto-detailing-and-waxing.png" alt="Ceramic Coating">
+                    </div>
+                    <button class="btn btn-outline service-select-btn" onclick="toggleServiceSelection('ceramic-coating', 'Ceramic Coating', 25000)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="paint-correction">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Paint Correction</h3>
+                    <p>Remove scratches and swirl marks for showroom finish</p>
+                    <div class="service-price">₦35,000</div>
+                    <div class="service-gallery">
+                        <img src="Image/man-worker-of-car-detailing-studi.png" alt="Paint Correction">
+                    </div>
+                    <button class="btn btn-outline service-select-btn" onclick="toggleServiceSelection('paint-correction', 'Paint Correction', 35000)">Select</button>
+                </div>
+            </div>
+
+           
+        </div>
+    </section>
+
+     <!-- Booking Section -->
+    <section class="booking">
+        <div class="container">
+            <div class="booking-container">
+                <div class="booking-form">
+                    <form id="bookingForm">
+                        <!-- Service Selection -->
+                        <div class="form-group">
+                            <label>Selected Services</label>
+                            <div id="selectedService" class="selected-service-display">
+                                <span>No services selected</span>
+                            </div>
+                        </div>
+
+                        <!-- Vehicle Information -->
+                        <div class="form-group">
+                            <label for="vehicleMake">Vehicle Make *</label>
+                            <input type="text" id="vehicleMake" name="vehicleMake" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vehicleModel">Vehicle Model *</label>
+                            <input type="text" id="vehicleModel" name="vehicleModel" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vehicleYear">Vehicle Year *</label>
+                            <input type="number" id="vehicleYear" name="vehicleYear" min="1990" max="2024" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vehicleColor">Vehicle Color</label>
+                            <input type="text" id="vehicleColor" name="vehicleColor">
+                        </div>
+
+                        <!-- Additional Services -->
+                        <div class="form-group">
+                            <label>Additional Services</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="additionalServices" value="engine-bay">
+                                    <span>Engine Bay Cleaning (+₦1,500)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="additionalServices" value="headlight-restoration">
+                                    <span>Headlight Restoration (+₦2,500)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="additionalServices" value="wheel-coating">
+                                    <span>Wheel Coating (+₦3,000)</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="additionalServices" value="glass-coating">
+                                    <span>Glass Coating (+₦2,000)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Appointment Details -->
+                        <div class="form-group">
+                            <label for="appointmentDate">Preferred Date *</label>
+                            <input type="date" id="appointmentDate" name="appointmentDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="appointmentTime">Preferred Time *</label>
+                            <select id="appointmentTime" name="appointmentTime" required>
+                                <option value="">Select time</option>
+                                <option value="09:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">1:00 PM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                                <option value="17:00">5:00 PM</option>
+                            </select>
+                        </div>
+
+                        <!-- Service Location -->
+                        <div class="form-group">
+                            <label for="serviceLocation">Service Location *</label>
+                            <select id="serviceLocation" name="serviceLocation" required>
+                                <option value="">Select location</option>
+                                <option value="onsite">On-site (We come to you)</option>
+                                <option value="facility">Our Facility</option>
+                            </select>
+                        </div>
+
+                        <!-- Customer Information -->
+                        <div class="form-group">
+                            <label for="customerName">Full Name *</label>
+                            <input type="text" id="customerName" name="customerName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number *</label>
+                            <input type="tel" id="customerPhone" name="customerPhone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="customerEmail">Email Address</label>
+                            <input type="email" id="customerEmail" name="customerEmail">
+                        </div>
+
+                        <!-- Location Selection -->
+                        <div class="form-group">
+                            <label for="state">State *</label>
+                            <select id="state" name="state" required>
+                                <option value="">Select State</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="localGovernment">Local Government *</label>
+                            <select id="localGovernment" name="localGovernment" required>
+                                <option value="">Select Local Government</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address *</label>
+                            <textarea id="address" name="address" rows="3" required></textarea>
+                        </div>
+
+                        <!-- Special Instructions -->
+                        <div class="form-group">
+                            <label for="specialInstructions">Special Instructions</label>
+                            <textarea id="specialInstructions" name="specialInstructions" rows="3" placeholder="Any special requests or notes..."></textarea>
+                        </div>
+
+                        <!-- Total Price Display -->
+                        <div class="price-summary">
+                            <h3>Price Summary</h3>
+                            <div id="priceBreakdown">
+                                <div class="price-item">
+                                    <span>Base Services:</span>
+                                    <span id="basePrice">₦0</span>
+                                </div>
+                                <div class="price-item">
+                                    <span>Additional Services:</span>
+                                    <span id="additionalPrice">₦0</span>
+                                </div>
+                                <div class="price-item total">
+                                    <span>Total:</span>
+                                    <span id="totalPrice">₦0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Book Appointment</button>
+                    </form>
+                </div>
+
+                <div class="booking-map">
+                    <h3>Service Area</h3>
+                    <div id="map" class="map-container"></div>
+                    <div class="map-info">
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Dabai Auto Spa</strong></p>
+                        <p>Basawa Road, Zaria, Kaduna State, Nigeria</p>
+                        <p><i class="fas fa-clock"></i> Operating Hours: 8:00 AM - 6:00 PM</p>
+                        <p><i class="fas fa-phone"></i> Call: +234 810 619 0145</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p>Processing your booking...</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Booking Successful!</h3>
+            <p>Your appointment has been scheduled. We'll send you a confirmation email shortly.</p>
+            <button class="btn btn-primary" onclick="closeModal('successModal')">OK</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dabai Auto Spa</h3>
+                    <p>Professional car wash and detailing services in Nigeria.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +234 810 619 0145</p>
+                    <p><i class="fas fa-envelope"></i> info@dabaiautospa.ng</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dabai Auto Spa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dabai Auto Spa - Premium Car Wash & Detailing Service</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places"></script>
+    <link rel="icon" href="Image/logo-grayscale.png" type="images/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-car-wash"></i>
+                <img src="Image/dabai-startup-high-resolution-logo-grayscale-transparent.png" alt="" width="80px">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="booking.html" class="nav-link">My Bookings</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Dabai Auto Spa</h1>
+            <p>Experience the ultimate car care service with our premium wash and detailing packages. We bring the showroom finish to your doorstep.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="window.location.href='booking.html'">Book Now</button>
+                <button class="btn btn-secondary" onclick="window.location.href='services.html'">View Services</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="Image/service-car-wash.png" alt="Dabai Auto Spa">
+        </div>
+    </section>
+
+    <!-- Featured Services Section -->
+    <section class="featured-services">
+        <div class="container">
+            <h2>Our Premium Services</h2>
+            <div class="services-grid">
+                <div class="service-card" data-service="basic-wash">
+                    <div class="service-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h3>Basic Wash</h3>
+                    <p>Exterior wash, tire cleaning, and basic interior vacuum</p>
+                    <div class="service-price">₦2,500</div>
+                    <button class="btn btn-outline" onclick="toggleServiceSelection('basic-wash', 'Basic Wash', 2500)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="premium-wash">
+                    <div class="service-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3>Premium Wash</h3>
+                    <p>Basic wash plus wax, tire dressing, and interior cleaning</p>
+                    <div class="service-price">₦4,500</div>
+                    <button class="btn btn-outline" onclick="toggleServiceSelection('premium-wash', 'Premium Wash', 4500)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="interior-detail">
+                    <div class="service-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Interior Detail</h3>
+                    <p>Deep interior cleaning, leather treatment, and odor removal</p>
+                    <div class="service-price">₦6,500</div>
+                    <button class="btn btn-outline" onclick="toggleServiceSelection('interior-detail', 'Interior Detail', 6500)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="full-detail">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Full Detail</h3>
+                    <p>Complete exterior and interior detailing with paint protection</p>
+                    <div class="service-price">₦12,000</div>
+                    <button class="btn btn-outline" onclick="toggleServiceSelection('full-detail', 'Full Detail', 12000)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="ceramic-coating">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Ceramic Coating</h3>
+                    <p>Long-lasting paint protection with hydrophobic coating</p>
+                    <div class="service-price">₦25,000</div>
+                    <button class="btn btn-outline" onclick="toggleServiceSelection('ceramic-coating', 'Ceramic Coating', 25000)">Select</button>
+                </div>
+
+                <div class="service-card" data-service="paint-correction">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Paint Correction</h3>
+                    <p>Remove scratches and swirl marks for showroom finish</p>
+                    <div class="service-price">₦35,000</div>
+                    <button class="btn btn-outline" onclick="toggleServiceSelection('paint-correction', 'Paint Correction', 35000)">Select</button>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="window.location.href='services.html'">View All Services</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Dabai Auto Spa</h2>
+                    <p>We are a professional car wash and detailing service committed to providing the highest quality care for your vehicle. With years of experience and state-of-the-art equipment, we ensure your car receives the attention it deserves.</p>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <h4>Quality Guaranteed</h4>
+                            <p>100% satisfaction guarantee on all our services</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h4>Expert Team</h4>
+                            <p>Certified professionals with years of experience</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Eco-Friendly</h4>
+                            <p>Using environmentally safe products and methods</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <h4>Mobile Service</h4>
+                            <p>We come to you for your convenience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Image/engine-bay-cleaning.png" alt="Professional Car Detailing">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview Section -->
+    <section class="gallery-preview">
+        <div class="container">
+            <h2>Our Work Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Image/car-wash.png" alt="Car Wash">
+                    <div class="gallery-overlay">
+                        <h4>Basic Wash</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Image/interior-car-detailing-vacuum-cl.png" alt="Interior Detail">
+                    <div class="gallery-overlay">
+                        <h4>Interior Detail</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Image/car-interior-shampooing.png" alt="Full Detail">
+                    <div class="gallery-overlay">
+                        <h4>Full Detail</h4>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Image/auto-detailing-and-waxing.png" alt="Ceramic Coating">
+                    <div class="gallery-overlay">
+                        <h4>Ceramic Coating</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" onclick="window.location.href='gallery.html'">View Full Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+234 810 619 0145</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@dabaiautospa.ng</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Basawa Road, Zaria, Kaduna, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Monday - Saturday: 8:00 AM - 6:00 PM<br>Sunday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="contactEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dabai Auto Spa</h3>
+                    <p>Professional car wash and detailing services in Nigeria. We bring the showroom finish to your doorstep.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Basic Wash</a></li>
+                        <li><a href="services.html">Premium Wash</a></li>
+                        <li><a href="services.html">Interior Detail</a></li>
+                        <li><a href="services.html">Full Detail</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="booking.html">Book Now</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +234 810 619 0145</p>
+                    <p><i class="fas fa-envelope"></i> info@dabaiautospa.ng</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kaduna, Nigeria</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dabai Auto Spa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="spinner"></div>
+            <p>Processing your booking...</p>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3>Booking Successful!</h3>
+            <p>Your appointment has been scheduled. We'll send you a confirmation email shortly.</p>
+            <button class="btn btn-primary" onclick="closeModal('successModal')">OK</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

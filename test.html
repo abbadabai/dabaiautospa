@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test State and LGA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Test State and Local Government Selection</h1>
+        <p>This page tests the state and local government dropdown functionality for Kaduna, Kano, and Abuja only.</p>
+        
+        <div class="form-group">
+            <label for="state">State *</label>
+            <select id="state" name="state" required>
+                <option value="">Select State</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="localGovernment">Local Government *</label>
+            <select id="localGovernment" name="localGovernment" required>
+                <option value="">Select Local Government</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address *</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+
+        <button onclick="testBooking()">Test Booking</button>
+        
+        <div id="result" style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 4px; display: none;">
+            <h3>Test Result:</h3>
+            <div id="resultContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Test data for the three states
+        const statesData = [
+            { name: 'Kaduna', id: 'kaduna' },
+            { name: 'Kano', id: 'kano' },
+            { name: 'Federal Capital Territory', id: 'fct' }
+        ];
+
+        // State to LGA mapping
+        const stateLGAMapping = {
+            'Kaduna': [
+                'Birnin Gwari', 'Chikun', 'Giwa', 'Igabi', 'Ikara', 'Jaba', 'Jema\'a', 'Kachia', 
+                'Kaduna North', 'Kaduna South', 'Kagarko', 'Kajuru', 'Kaura', 'Kauru', 'Kubau', 
+                'Kudan', 'Lere', 'Makarfi', 'Sabon Gari', 'Sanga', 'Soba', 'Zangon Kataf', 'Zaria'
+            ],
+            'Kano': [
+                'Ajingi', 'Albasu', 'Bagwai', 'Bebeji', 'Bichi', 'Bunkure', 'Dala', 'Dambatta', 
+                'Dawakin Kudu', 'Dawakin Tofa', 'Doguwa', 'Fagge', 'Gabasawa', 'Garko', 'Garum', 
+                'Gaya', 'Gezawa', 'Gwale', 'Gwarzo', 'Kabo', 'Kano Municipal', 'Karaye', 'Kibiya', 
+                'Kiru', 'Kumbotso', 'Kunchi', 'Kura', 'Madobi', 'Makoda', 'Minjibir', 'Nasarawa', 
+                'Rano', 'Rimin Gado', 'Rogo', 'Shanono', 'Sumaila', 'Takai', 'Tarauni', 'Tofa', 
+                'Tsanyawa', 'Tudun Wada', 'Ungogo', 'Warawa', 'Wudil'
+            ],
+            'Federal Capital Territory': [
+                'Abaji', 'Abuja Municipal', 'Gwagwalada', 'Kuje', 'Kwali'
+            ]
+        };
+
+        // Populate states dropdown
+        function populateStatesDropdown() {
+            const stateSelect = document.getElementById('state');
+            stateSelect.innerHTML = '<option value="">Select State</option>';
+            
+            statesData.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state.name;
+                option.textContent = state.name;
+                stateSelect.appendChild(option);
+            });
+        }
+
+        // Load LGA data for selected state
+        function loadLGAData(state, lgaSelect) {
+            lgaSelect.innerHTML = '<option value="">Loading...</option>';
+            
+            const lgas = stateLGAMapping[state] || [];
+            
+            if (lgas.length > 0) {
+                populateLGADropdown(lgaSelect, lgas);
+            } else {
+                lgaSelect.innerHTML = '<option value="">No LGAs available</option>';
+            }
+        }
+
+        // Populate LGA dropdown
+        function populateLGADropdown(lgaSelect, lgas) {
+            lgaSelect.innerHTML = '<option value="">Select Local Government</option>';
+            
+            lgas.forEach(lga => {
+                const option = document.createElement('option');
+                option.value = lga;
+                option.textContent = lga;
+                lgaSelect.appendChild(option);
+            });
+        }
+
+        // Test booking function
+        function testBooking() {
+            const state = document.getElementById('state').value;
+            const lga = document.getElementById('localGovernment').value;
+            const address = document.getElementById('address').value;
+            
+            if (!state || !lga || !address) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('result');
+            const resultContent = document.getElementById('resultContent');
+            
+            resultContent.innerHTML = `
+                <p><strong>State:</strong> ${state}</p>
+                <p><strong>Local Government:</strong> ${lga}</p>
+                <p><strong>Address:</strong> ${address}</p>
+                <p><strong>Status:</strong> Test booking successful!</p>
+            `;
+            
+            resultDiv.style.display = 'block';
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            populateStatesDropdown();
+            
+            // Setup state change handler
+            const stateSelect = document.getElementById('state');
+            const lgaSelect = document.getElementById('localGovernment');
+            
+            stateSelect.addEventListener('change', function() {
+                const selectedState = this.value;
+                if (selectedState) {
+                    loadLGAData(selectedState, lgaSelect);
+                } else {
+                    lgaSelect.innerHTML = '<option value="">Select Local Government</option>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

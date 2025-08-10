@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Dabai Auto Spa</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="Image/logo-grayscale.png" type="images/x-icon">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-car-wash"></i>
+                <img src="Image/dabai-startup-high-resolution-logo-grayscale-transparent.png" alt="" width="80px">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="booking.html" class="nav-link">My Bookings</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Gallery Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Gallery</h1>
+            <p>See the amazing transformations we've achieved</p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter -->
+    <section class="gallery-filter">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="basic-wash">Basic Wash</button>
+                <button class="filter-btn" data-filter="premium-wash">Premium Wash</button>
+                <button class="filter-btn" data-filter="interior-detail">Interior Detail</button>
+                <button class="filter-btn" data-filter="full-detail">Full Detail</button>
+                <button class="filter-btn" data-filter="ceramic-coating">Ceramic Coating</button>
+                <button class="filter-btn" data-filter="paint-correction">Paint Correction</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Basic Wash Images -->
+                <div class="gallery-item" data-category="basic-wash">
+                    <img src="Image/service-car-wash.png" alt="Basic Wash - Before">
+                    <div class="gallery-overlay">
+                        <h4>Basic Wash</h4>
+                        <p>Exterior cleaning</p>
+                    </div>
+                </div>
+
+
+                <!-- Premium Wash Images -->
+                 <div class="gallery-item" data-category="premium-wash">
+                    <img src="Image/Pic1-1024x576.png" alt="Premium Wash - Before">
+                    <div class="gallery-overlay">
+                        <h4>Premium Wash</h4>
+                        <p>Vehicle premium wash</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="premium-wash">
+                    <img src="Image/engine-bay-cleaning.png" alt="Premium Wash - Before">
+                    <div class="gallery-overlay">
+                        <h4>Engine-bay cleaning</h4>
+                        <p>Vehicle premium treatment engine-bay cleaning</p>
+                    </div>
+                </div>
+
+                <!-- Interior Detail Images -->
+                <div class="gallery-item" data-category="interior-detail">
+                    <img src="Image/interior-car-detailing-vacuum-cl.png" alt="Interior Detail - Before">
+                    <div class="gallery-overlay">
+                        <h4>Interior Detail</h4>
+                        <p> interior</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="interior-detail">
+                    <img src="Image/6.Brushes-1-1024x576.png" alt="Interior Detail - Before">
+                    <div class="gallery-overlay">
+                        <h4>Exterior</h4>
+                        <p>Brushes for wheels</p>
+                    </div>
+                </div>
+
+                <!-- Full Detail Images -->
+                <div class="gallery-item" data-category="full-detail">
+                    <img src="Image/car-interior-shampooing.png" alt="Full Detail - Before">
+                    <div class="gallery-overlay">
+                        <h4>Full interior Detail</h4>
+                        <p>Car interior shampooing</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="full-detail">
+                    <img src="Image/car-leather-cleaning.png" alt="Full Detail - Before">
+                    <div class="gallery-overlay">
+                        <h4>Interior Detail</h4>
+                        <p>Car leather cleaning</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="full-detail">
+                    <img src="Image/The-Perks-of-Car-Wash-and-Car-De.png" alt="Full Detail - Before">
+                    <div class="gallery-overlay">
+                        <h4>Interior Detail</h4>
+                        <p>interior detailing</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="full-detail">
+                    <img src="Image/ABR-AUTO-CAR-DETAILING-2.png" alt="Full Detail - Before">
+                    <div class="gallery-overlay">
+                        <h4>Interior Detail</h4>
+                        <p>interior detailing</p>
+                    </div>
+                </div>
+
+                <!-- Ceramic Coating Images -->
+                <div class="gallery-item" data-category="ceramic-coating">
+                    <img src="Image/auto-detailing-and-waxing.png" alt="Ceramic Coating - Before">
+                    <div class="gallery-overlay">
+                        <h4>Ceramic Coating</h4>
+                        <p>Paint protection</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ceramic-coating">
+                    <img src="Image/best-car-cleaning-services-in-gu.png" alt="Ceramic Coating - Before">
+                    <div class="gallery-overlay">
+                        <h4>Ceramic Coating</h4>
+                        <p>Paint protection</p>
+                    </div>
+                </div>
+
+                <!-- Paint Correction Images -->
+                <div class="gallery-item" data-category="paint-correction">
+                    <img src="Image/man-worker-of-car-detailing-studi.png" alt="Paint Correction - Before">
+                    <div class="gallery-overlay">
+                        <h4>Paint Correction</h4>
+                        <p>Scratched and swirled paint</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content image-modal-content">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div id="modalCaption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dabai Auto Spa</h3>
+                    <p>Professional car wash and detailing services in Nigeria.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> +234 810 619 0145</p>
+                    <p><i class="fas fa-envelope"></i> info@dabaiautospa.ng</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dabai Auto Spa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
